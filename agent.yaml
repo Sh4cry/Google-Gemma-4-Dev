@@ -1,0 +1,23 @@
+# Root Agent Configuration for The Gemma 4 Developer Agent Competition
+# Competition host: Google DeepMind / Kaggle
+name: gemma_developer_agent
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Autonomous software engineering agent that diagnoses, edits, and verifies fixes for repository issues.
+
+# System instructions (supports !include directive)
+instruction: !include prompts/system.md
+
+# Sampling and generation configuration
+generate_content_config: !include configs/sampling.yaml
+
+# Allowed host tools from the swegemma ToolRegistry
+tools:
+  - run_command
+  - read_file
+  - edit_file
+  - write_file
+  - get_status
+  - submit_patch
+  - get_code_neighbors
+  - search_similar_code
+  - get_code_subgraph

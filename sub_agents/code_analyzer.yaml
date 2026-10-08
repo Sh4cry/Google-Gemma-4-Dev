@@ -1,0 +1,16 @@
+# Optional Sub-Agent Configuration (Code Analyzer)
+# Can be referenced in agent.yaml under tools as:
+# - agent_tool:
+#     config_path: sub_agents/code_analyzer.yaml
+#     skip_summarization: false
+
+name: code_analyzer
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Inspects code graph, symbol relationships, and AST neighbors to identify culprit files.
+instruction: !include ../prompts/reviewer.md
+generate_content_config: !include ../configs/sampling.yaml
+tools:
+  - read_file
+  - get_code_neighbors
+  - search_similar_code
+  - get_code_subgraph

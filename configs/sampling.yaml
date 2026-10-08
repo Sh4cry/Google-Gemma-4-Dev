@@ -1,0 +1,7 @@
+# Model generation & sampling hyperparameters for Gemma 4 (31B QAT)
+temperature: 0.2
+top_p: 0.95
+top_k: 40
+max_output_tokens: 4096
+stop_sequences:
+  - "<end_of_turn>"
